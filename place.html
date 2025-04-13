@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Lagos (TBS)</title>
+    <meta name="description" content="Discover the beauty and culture of Lagos,Nigeria. Learn about its history, weather, and attractions.">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- <script src="place.js" defer></script> -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to National Theatre Iganmu, Surulere, Lagos State</h1>
+        <img 
+        src="images/hero-large.webp" 
+        srcset="images/Hero-small.webp 480w,images/hero-meduim.webp 768w, images/hero-large.webp 1200w" 
+        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 1200px" 
+        alt="Scenic view of TBS" 
+        class="hero-image">
+</header>
+
+    <main>
+        <section id="weather">
+            <h2>
+                Weather
+                <span class="weather-icon"></span>
+                <img src="images/weather-icon.svg" alt="Weather icon" class="weather-svg">
+            </h2>
+            <p>Temperature: <span id="temperature">30</span>°F</p>
+            <p>Wind Speed: <span id="windSpeed">10</span> mph</p>
+            <p>Wind Chill: <span id="windChill">N/A</span></p>
+        </section>
+
+        <!-- I can decide to add more sections as needed based on wireframe -->
+        <section id="about">
+            <h2>About National Theatre</h2>
+            <p> The Iganmu surulere, is a 14.5-hectare (35.8-acre) ceremonial ground (originally called “Race Course”) in Lagos Island, Lagos.
+
+                The land was provided to colonial authorities by Oba Dosunmu in 1859, who thereafter, built up the surrounding areas. The course was later demolished by the government of Yakubu Gowon to make way for Tafawa Balewa Square. In its hey days, the course hosted the Empire Day parades.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Emmanuel Kelikume. Last modified: <span id="lastModified"></span></p>
+    </footer>
+
+    <script src="scripts/place.js" defer></script>
+</body>
+</html>
