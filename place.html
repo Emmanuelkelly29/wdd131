@@ -3,48 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Lagos (TBS)</title>
-    <meta name="description" content="Discover the beauty and culture of Lagos,Nigeria. Learn about its history, weather, and attractions.">
-    <link rel="stylesheet" href="styles/styles.css">
-    <!-- <script src="place.js" defer></script> -->
+    <title>Nigeria</title>
+    <meta name="description" content="Explore the beauty and culture of Nigeria">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display&display=swap" rel="stylesheet">
+    
+    <!-- Mobile-First CSS -->
+    <link rel="stylesheet" href="styles/place.css">
+    
+    <!-- Larger Screen CSS -->
+    <link rel="stylesheet" href="styles/place-large.css" media="(min-width: 768px)">
+    
+    <!-- Deferred JavaScript -->
+    <script src="scripts/place.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to National Theatre Iganmu, Surulere, Lagos State</h1>
-        <img 
-        src="images/hero_large.jpg" 
-        srcset="images/hero_small.jpg 480w,images/hero_meduim.jpg 768w, images/hero_large.jpg 1200w" 
-        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 1200px" 
-        alt="Scenic view of TBS" 
-        class="hero-image">
-</header>
-
+        <h1>Nigeria</h1>
+    </header>
+    
     <main>
-        <section id="weather">
-            <h2>
-                Weather
-                <span class="weather-icon"></span>
-                <img src="images/weather-icon.svg" alt="Weather icon" class="weather-svg">
-            </h2>
-            <p>Temperature: <span id="temperature">30</span>°F</p>
-            <p>Wind Speed: <span id="windSpeed">10</span> mph</p>
-            <p>Wind Chill: <span id="windChill">N/A</span></p>
-        </section>
+        <!-- Hero Section -->
+        <div class="hero">
+            <picture>
+                <source srcset="images/hero_large.jpg" media="(min-width: 768px)">
+                <img src="images/hero_small.jpg" alt="Beautiful Nigerian landscape">
+            </picture>
+            
+            <!-- Hero Overlay (only used in desktop view) -->
+            <div class="hero-overlay"></div>
+        </div>
 
-        <!-- I can decide to add more sections as needed based on wireframe -->
-        <section id="about">
-            <h2>About National Theatre</h2>
-            <p> The Iganmu surulere, is a 14.5-hectare (35.8-acre) ceremonial ground (originally called “Race Course”) in Lagos Island, Lagos.
+        <!-- Data Section -->
+        <div class="data">
+            <h2>Data</h2>
+            <ul>
+                <li>Population: 200+ million</li>
+                <li>Capital: Abuja</li>
+                <li>Languages: English, Yoruba, Igbo, Hausa</li>
+            </ul>
+        </div>
 
-                The land was provided to colonial authorities by Oba Dosunmu in 1859, who thereafter, built up the surrounding areas. The course was later demolished by the government of Yakubu Gowon to make way for Tafawa Balewa Square. In its hey days, the course hosted the Empire Day parades.</p>
-        </section>
+        <!-- Weather Section -->
+        <div class="weather">
+            <h2>Weather in Lagos</h2>
+            <img src="images/weather-icon.svg" alt="Weather icon" class="weather-icon mobile-only">
+            <div class="weather-details">
+                <p>Temperature: <span id="temperature">8</span>°C</p>
+                <p>Wind Speed: <span id="wind-speed">10</span> km/h</p>
+                <p>Wind Chill: <span id="wind-chill">Calculating...</span></p>
+            </div>
+        </div>
     </main>
-
+    
     <footer>
-        <p>&copy; <span id="year"></span> Emmanuel Kelikume. Last modified: <span id="lastModified"></span></p>
+        <p>&copy; <span id="current-year"></span> Emmanuel Kelikume Nigeria. Last modified: <span id="last-modified"></span></p>
     </footer>
-
-    <script src="scripts/place.js" defer></script>
 </body>
 </html>
 

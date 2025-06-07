@@ -1,34 +1,29 @@
-// Wait for the DOM to fully load
-document.addEventListener('DOMContentLoaded', () => {
-    // Footer - Current Year and Last Modified Date
-    const yearSpan = document.getElementById('year');
-    const lastModifiedSpan = document.getElementById('lastModified');
+// Function to calculate wind chill in one line as required
+const calculateWindChill = (tempC, speedKmh) => tempC <= 10 && speedKmh > 4.8 ? (13.12 + 0.6215 * tempC - 11.37 * Math.pow(speedKmh, 0.16) + 0.3965 * tempC * Math.pow(speedKmh, 0.16)).toFixed(1) : "N/A";
 
-    const currentYear = new Date().getFullYear();
-    yearSpan.textContent = currentYear;
+// Update wind chill on page load
+document.addEventListener("DOMContentLoaded", () => {
+    // Get temperature and wind speed values
+    const temperature = parseFloat(document.getElementById("temperature").textContent);
+    const windSpeed = parseFloat(document.getElementById("wind-speed").textContent);
+    
+    // Calculate and display wind chill
+    const windChill = calculateWindChill(temperature, windSpeed);
+    const windChillElement = document.getElementById("wind-chill");
+    windChillElement.textContent = windChill === "N/A" ? windChill : `${windChill}°C`;
 
-    const lastModifiedDate = document.lastModified;
-    lastModifiedSpan.textContent = lastModifiedDate;
+    // Set current year in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
 
-    // Weather - Calculate Wind Chill
-    const temp = parseFloat(document.getElementById('temperature').textContent);
-    const windSpeed = parseFloat(document.getElementById('windSpeed').textContent);
-    const windChillSpan = document.getElementById('windChill');
-
-    function calculateWindChill(temp, speed) {
-        // Wind Chill formula in Fahrenheit
-        return 35.74 + (0.6215 * temp) - (35.75 * Math.pow(speed, 0.16)) + (0.4275 * temp * Math.pow(speed, 0.16));
-    }
-
-    function displayWindChill(temp, speed) {
-        // Check conditions for Wind Chill
-        if (temp <= 50 && speed > 3) {
-            const windChill = calculateWindChill(temp, speed).toFixed(1);
-            windChillSpan.textContent = `${windChill}°F`;
-        } else {
-            windChillSpan.textContent = "N/A";
-        }
-    }
-
-    displayWindChill(temp, windSpeed);
+    // Set last modified date in footer with more detailed formatting
+    const lastModified = new Date(document.lastModified);
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    };
+    document.getElementById("last-modified").textContent = lastModified.toLocaleDateString('en-US', options);
 });
